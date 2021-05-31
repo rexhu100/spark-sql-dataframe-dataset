@@ -21,6 +21,11 @@ object DataFrameStringSchema {
     df.printSchema()
     println(df.schema)
 
+    df.createOrReplaceTempView("blog_data")
+
+    val dfTemp = spark.sql("SELECT TO_DATE(CAST(UNIX_TIMESTAMP(Published, 'M/d/yyyy') AS TIMESTAMP)) as PubDate FROM blog_data")
+    dfTemp.show()
+
     spark.stop()
   }
 }
