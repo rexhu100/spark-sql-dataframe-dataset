@@ -13,6 +13,7 @@ object DataFrameStringSchema {
         |Id STRING, First STRING, Last STRING, Url STRING, Published STRING, Hits INT, Campaigns ARRAY<STRING>
         |""".stripMargin
 
+    // Download the data from https://github.com/databricks/LearningSparkV2
     val dataFile = "data/blogs.json"
     val df = spark.read.schema(schema).format("json").load(dataFile)
 

@@ -17,6 +17,7 @@ object DataFrameSchema {
       StructField("Campaigns", ArrayType(StringType), false)
     ))
 
+    // Download the data from https://github.com/databricks/LearningSparkV2
     val dataFile = "data/blogs.json"
 
     var df = spark.read.schema(schema).format("json").load(dataFile)
