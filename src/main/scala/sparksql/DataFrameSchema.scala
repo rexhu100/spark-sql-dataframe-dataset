@@ -1,6 +1,7 @@
 package sparksql
 
 import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types._
 
 object DataFrameSchema {
@@ -22,6 +23,8 @@ object DataFrameSchema {
     df.show()
     df.printSchema()
     println(df.schema)
+
+//    df = df.withColumn("PublishedDate", to_date(col("Published"), ""))
 
     spark.stop()
   }
